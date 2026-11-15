@@ -4,6 +4,27 @@ All notable changes to `phil/safe-http` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.2.1-alpha - 2026-11-15
+
+### Added
+
+- `SafeHttpClient::send($method, $url, $headers, $body, $rule)`: a request of any method, with its headers and body,
+  under the guards of `get()` — every address checked, the private networks refused, the time, the redirects and the
+  bytes of the answer bounded. The method is letters only, put in capitals; `CONNECT` and `TRACE` are refused. A
+  header's name is a token, never digits only, which PHP keeps as an integer key, never `Accept`, `User-Agent`, a header
+  of the connection or of the framing, nor a `Proxy-` header; its value is one line; the headers are held to
+  `maxHeaderBytes` and `maxHeaders`, the body to `maxBytes`. Only a request of `GET`, `HEAD` or `OPTIONS` without a body
+  follows redirects; the headers given never leave the scheme, host and port of the first address. No message names a
+  header's value.
+- `InvalidRequest`, refused before any request, and `RefusedRedirect`, a redirect answered to a request that follows
+  none.
+- Sending a request with headers and a body, its redirects and its credentials, in `doc/reading.md`.
+
+### Fixed
+
+- `SafeResponse::mediaType()`, `mediaTypeOf()` and `charset()` read by ASCII classes: under `LC_CTYPE` set to a UTF-8
+  locale, PCRE took bytes outside ASCII for letters and spaces, and `text/h\xE9ml` was a media type.
+
 ## 0.2.0-alpha - 2026-11-14
 
 ### Added
