@@ -4,6 +4,12 @@ All notable changes to `phil/safe-http` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.2.2-alpha - 2026-11-24
+
+### Changed
+
+- Requires the latest minor of each dependency (`symfony/http-client-contracts` 3.8, `symfony/service-contracts` 3.8).
+
 ## 0.2.1-alpha - 2026-11-15
 
 ### Added

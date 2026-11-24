@@ -1,6 +1,6 @@
 {
     "name": "phil/safe-http",
-    "description": "Reading other sites safely: an HTTP client on Symfony HttpClient that refuses private networks, follows redirects it checks itself, and bounds the time, the size and the redirects of what it reads.",
+    "description": "Fetch addresses given by users or other sites safely: an HTTP client that refuses private networks, checks each redirect, and bounds time and size.",
     "license": "MIT",
     "type": "library",
     "keywords": [
@@ -24,9 +24,9 @@
         "ext-uri": "*",
         "phil/url": "^0.1@dev",
         "symfony/http-client": "^8.2",
-        "symfony/http-client-contracts": "^3.6",
+        "symfony/http-client-contracts": "^3.8",
         "symfony/http-foundation": "^8.2",
-        "symfony/service-contracts": "^3.6"
+        "symfony/service-contracts": "^3.8"
     },
     "require-dev": {
         "phpunit/phpunit": "^13.4",
